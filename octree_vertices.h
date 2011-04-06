@@ -6,23 +6,9 @@
 #include"octree_errors.h"
 #include"octree_callbacks.h"
 #include"octree_core.h"
+#include"octree_index3.h"
 
 namespace octree {
-
-	class index3 {
-	public:
-		int ijk[3];
-
-		index3( int x=0, int y=0, int z=0 ){
-			ijk[0]=x; ijk[1]=y; ijk[2]=z;
-		}
-
-		inline const bool operator<( const index3 &in ) const {
-			return ( ijk[0]  < in.ijk[0] ) ||
-				   ( ijk[0] == in.ijk[0] && ijk[1]  < in.ijk[1] ) ||
-				   ( ijk[0] == in.ijk[0] && ijk[1] == in.ijk[1] && ijk[2] < in.ijk[2] );
-		}
-	};
 
 	// really crude class to make unique vertices for positions...
 	// TODO: clean this up and make it more robust...
